@@ -10,10 +10,10 @@ import { UsersIcon } from '@/components/icons/UsersIcon'
 
 const resources = [
   {
-    href: '/contacts',
-    name: 'Contacts',
+    href: '#',
+    name: 'Introduction to Python',
     description:
-      'Learn about the contact model and how to create, retrieve, update, delete, and list contacts.',
+      'This section formally introduces Python as a programming language. We will learn how to write basic code in Python.',
     icon: UserIcon,
     pattern: {
       y: 16,
@@ -24,10 +24,10 @@ const resources = [
     },
   },
   {
-    href: '/conversations',
-    name: 'Conversations',
+    href: '#',
+    name: 'Data Types and Variables',
     description:
-      'Learn about the conversation model and how to create, retrieve, update, delete, and list conversations.',
+      'This section explains the different types of data that are allowed in Python. You will learn how to store data using variables.',
     icon: ChatBubbleIcon,
     pattern: {
       y: -6,
@@ -38,10 +38,10 @@ const resources = [
     },
   },
   {
-    href: '/messages',
-    name: 'Messages',
+    href: '#',
+    name: 'Operators in Python',
     description:
-      'Learn about the message model and how to create, retrieve, update, delete, and list messages.',
+      'This section explains the different operators available in Python with coding examples.',
     icon: EnvelopeIcon,
     pattern: {
       y: 32,
@@ -52,10 +52,63 @@ const resources = [
     },
   },
   {
-    href: '/groups',
-    name: 'Groups',
+    href: '#',
+    name: 'Conditional Statements',
     description:
-      'Learn about the group model and how to create, retrieve, update, delete, and list groups.',
+      'This section explains the use of if, if-else, and if-elif-else statements in Python.',
+    icon: UsersIcon,
+    pattern: {
+      y: 22,
+      squares: [[0, 1]],
+    },
+  },
+  {
+    href: '#',
+    name: 'Functions',
+    description:
+      'This section provides detailed information on functions.',
+    icon: UserIcon,
+    pattern: {
+      y: 16,
+      squares: [
+        [0, 1],
+        [1, 3],
+      ],
+    },
+  },
+  {
+    href: '#',
+    name: 'Loops',
+    description:
+      'This section explains the use of for, while, and nested for loops in Python.',
+    icon: ChatBubbleIcon,
+    pattern: {
+      y: -6,
+      squares: [
+        [-1, 2],
+        [1, 3],
+      ],
+    },
+  },
+  {
+    href: '#',
+    name: 'Data structures',
+    description:
+      'This section provides information on some common data structures used in Python to systematically arrange data.',
+    icon: EnvelopeIcon,
+    pattern: {
+      y: 32,
+      squares: [
+        [0, 2],
+        [1, 4],
+      ],
+    },
+  },
+  {
+    href: '#',
+    name: 'Flask',
+    description:
+      'Learn about creating an application using Flask framework',
     icon: UsersIcon,
     pattern: {
       y: 22,
@@ -145,7 +198,7 @@ export function Resources() {
   return (
     <div className="my-16 xl:max-w-none">
       <Heading level={2} id="resources">
-        Resources
+        Modules
       </Heading>
       <div className="not-prose mt-4 grid grid-cols-1 gap-8 border-t border-zinc-900/5 pt-10 dark:border-white/5 sm:grid-cols-2 xl:grid-cols-4">
         {resources.map((resource) => (

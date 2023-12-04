@@ -1,0 +1,229 @@
+export const description =
+  'Learn Data Types with Python'
+
+# What are Data Types and Variables?
+In this lesson, we'll learn about the different data types in Python.
+
+<Note>
+  The data type of an item defines the type and range of values that item can have.
+</Note>
+
+The concept of data types can be found in the real world. There are numbers, alphabets, characters, etc., that all have unique properties due to their classification.
+
+Such a classification is also made in many programming languages, including Python.
+
+## Data Types
+
+Unlike many other languages, Python does not place a strong emphasis on defining the data type of an object, which makes coding much simpler. The language provides three main data types:
+
+- Numbers
+- Strings
+- Booleans
+
+## Variables
+<Note>
+  A variable is simply a name to which a value can be assigned.
+</Note>
+
+Variables allow us to give meaningful names to data.
+
+The simplest way to assign a value to a variable is through the = operator.
+A big advantage of variables is that they allow us to store data so that we can use it later to perform operations in the code.
+
+Variables are mutable. Hence, the value of a variable can always be updated or replaced.
+
+### Naming Convention
+There are certain rules we have to follow when picking the name for a variable:
+
+- The name can start with an upper or lower case alphabet. *For example, you can define your income variable as `Income` or `income`, both are valid.*
+- All the names are case sensitive. *For example, `Income` and `income` are two different variables and not one.*
+- A number can appear in the name, but not at the beginning. *For example, `12income` is not a valid name but `income12` or `in12come` are valid.*
+- The _ character can appear anywhere in the name. *For example, `_income` or `income_` are valid names.*
+- Spaces are not allowed. Instead, we must use snake_case to make variable names readable. *For example, `monthly_income` is a valid name.*
+- The name of the variable should be something meaningful that describes the value it holds, instead of being random characters. *For example, `inc` or even `income` would not give any useful information but names like `weekly_income`, `monthly_income`, or `annual_income` explain the purpose of our defined variable*
+
+## Numbers
+
+Python is one of the most powerful languages when it comes to manipulating numerical data. It is equipped with support for several types of numbers, along with utilities for performing computations on them.
+
+There are three main types of numbers in Python:
+
+### Integers
+The integer data type is comprised of all the positive and negative whole numbers.
+
+The amount of memory an integer occupies depends on its value. For example, 0 will take up 24 bytes whereas 1 would occupy 28 bytes.
+
+Here are some examples of integers:
+
+<CodeGroup title="variable.py" >
+    ```python
+    print(10) # positive integer
+    print(-1000) # negative integer
+    
+    num = 1234 # assiging to a variable
+    print(num)
+
+    num = -1234 # assiging a negative value
+    print(num)
+    ```
+</CodeGroup>
+
+### Floating Point Numbers
+Floating-point numbers, or floats, refer to positive and negative decimal numbers. Python allows us to create decimals up to a very high decimal place. This ensures accurate computations for precise values. A float occupies 24 bytes of memory.
+
+Below, we can find some examples of floats:
+
+<CodeGroup title="floating_numbers.py" >
+    ```python
+    print(1.0000012) # positive floating value
+    print(-4.221) # negative floating value
+    
+    pi = 3.14 # assiging to a variable
+    print(pi)
+    ```
+</CodeGroup>
+
+### Complex Numbers
+Python also supports complex numbers, or numbers made up of a real and an imaginary part. Just like the `print()` statement is used to print values, `complex()` is used to create complex numbers. It requires two values. The first one will be the real part of the complex number, while the second value will be the imaginary part. Here’s the template for making a complex number:
+<Note>
+`complex(real, imaginary)`
+
+Complex numbers are useful for modelling physics and electrical engineering models in Python. While they may not seem very relevant right now, it never hurts to know!
+
+A complex number usually takes up 32 bytes of memory.
+</Note>
+
+<CodeGroup title="complex_numbers.py" >
+    ```python
+    print(complex(3,5)) # represents (3 + 5j)
+    ```
+</CodeGroup>
+
+## Boolean 
+The Boolean (also known as bool) data type allows us to choose between two values: true and false.
+
+In Python, we can simply use True or False to represent a bool:
+<CodeGroup title="boolean.py" >
+    ```python
+    print(True)
+
+    is_ready = False
+    print(is_ready)
+    ```
+</CodeGroup>
+
+<Note>
+The first letter of a bool needs to be capitalized in Python.
+</Note>
+
+## Strings
+A group of characters such as this is an example of the string data type. A string is a collection of characters closed within single, double or triple quotation marks. A string can also contain a single character or be entirely empty.
+<CodeGroup title="strings.py" >
+    ```python
+    print("Harry Potter!")  # Double quotation marks
+    got = 'Game of Thrones...'  # Single quotation marks
+    print(got)print("$")  # Single character
+    empty = ""print(empty)  # Just prints an empty line
+    multiple_lines = '''Triple quotes allowsmulti-line string.'''
+    print(multiple_lines)
+    print("Harry Potter!")  # Double quotation marks
+    ```
+</CodeGroup>
+
+*From the examples above we can see:
+A blank space inside the string quotation marks is also considered to be a character.
+To add a multi-line string we can use triple quotes.*
+
+### Length of a String
+The length of a string can be found using the len() built-in function. This length indicates the number of characters in the string:
+<CodeGroup title="string_length.py" >
+    ```python
+    random_string = "I am Batman"  # 11 characters
+    print(len(random_string))
+    random_string = "I am Batman"  # 11 characters
+    print(len(random_string))
+    ```
+</CodeGroup>
+
+### Indexing
+In a string, every character is given a numerical index based on its position.
+A string in Python is indexed from 0 to n-1 where n is its length. This means that the index of the first character in a string is 0.
+
+### Accessing Characters
+Each character in a string can be accessed using its index. The index must be closed within square brackets, [], and appended to the string.
+
+<CodeGroup title="accessing_strings.py" >
+    ```python
+    batman = "Bruce Wayne"first = batman[0] # Accessing the first character
+    print(first)
+    space = batman[5]  # Accessing the empty space in the string
+    print(space)
+    
+    last = batman[len(batman) - 1]
+    print(last)# The following will produce an error since the index is out of bounds#
+    
+    # err = batman[len(batman)]
+    ```
+</CodeGroup>
+
+If we try to execute the code, we would get an error because the maximum index is `len(batman) - 1`. A higher value is not within the bounds of the string. Since `len(batman)` is larger than `len(batman) - 1`, it will produce an error.
+
+### Reverse Indexing
+We can also change our indexing convention by using negative indices.
+
+Negative indices start from the opposite end of the string. Hence, the -1 index corresponds to the last character:
+
+<CodeGroup title="reverse_strings.py" >
+    ```python
+    batman = "Bruce Wayne"
+    print(batman[-1]) # Corresponds to batman[10]
+    print(batman[-5])  # Corresponds to batman[6]
+
+    batman = "Bruce Wayne"
+    print(batman[-1])  # Corresponds to batman[10]
+    print(batman[-5])  # Corresponds to batman[6]
+    ```
+</CodeGroup>
+
+### String Immutability
+Once we assign a value to a string, we can’t update it later. How about verifying it with an executable below?
+<CodeGroup title="immutable_strings.py" >
+    ```python
+    string = "Immutability"
+    string[0] = 'O' # Will give errors
+    ```
+</CodeGroup>
+The above code gives `TypeError` because Python doesn’t support item assignment in case of strings.
+
+Remember, assigning a new value to string variable doesn’t mean that you’ve changed the value. Let’s verify it with the id() method below.
+<CodeGroup title="immutable_strings.py" >
+    ```python
+    str1 = "hello"
+    print(id(str1))
+    str1 = "bye"
+    print(id(str1))
+    ```
+</CodeGroup>
+
+Notice, when we assign a new value to str1 its identity changes not the value.
+
+### Slicing A String
+<Note>
+Slicing is the process of obtaining a portion (substring) of a string by using its indices.
+</Note>
+
+Given a string, we can use the following template to slice it and obtain a substring:
+`string[start:end]`
+- `start` is the index from where we want the substring to start.
+- `end` is the index where we want our substring to end.
+*The character at the end index in the string, will not be included in the substring obtained through this method.*
+
+<CodeGroup title="slice_strings.py" >
+    ```python
+    my_string = "This is MY string!"
+    print(my_string[0:4]) # From the start till before the 4th index
+    print(my_string[1:7])
+    print(my_string[8:len(my_string)]) # From the 8th index till the end 
+    ```
+</CodeGroup>
+

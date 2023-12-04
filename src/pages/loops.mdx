@@ -1,0 +1,366 @@
+export const description =
+  'In-depth look into the most powerful feature of Python programming: functions.'
+
+# Loops
+
+<Note>A function is a reusable set of operations.</Note>
+That sounds like a pretty straightforward definition. But what does it exactly mean?
+
+Take the `print()` and `len()` statements for instance. Both always perform predefined tasks. Hence, they are examples of functions!
+
+## Why Use Functions?
+
+Think of a function as a box which performs a task. We give it an input and it returns an output.
+
+We don’t need to write the set of instructions again for a different input, we could just call the function again.
+
+Functions are useful because they make the code concise and simple. The primary benefits of using functions are:
+
+- **Reusability**: A function can be used over and over again. You do not have to write redundant code. For example, a `sum()` function could compute the sum of all the integers we provide it. We won’t have to write the summing operation ourselves each time.
+- **Simplicity**: Functions are easy to use and make the code readable. We only need to know the inputs and the purpose of the function without focusing on the inner workings. This abstraction allows us to focus more on gaining the output instead of figuring out how it was computed.
+
+An input isn’t even necessary. A function could perform its own computations to complete a task.
+
+<CodeGroup title="without_functions.py" >
+    ```python
+    num1 = 10
+    num2 = 30
+    if num1 < num2:
+      minimum = num1
+    else:
+      minimum = num2
+
+    print(minimum)
+
+    num1 = 50
+    num2 = 10
+    if num1 < num2:
+      minimum = num1
+    else:
+      minimum = num2
+
+    print(minimum)
+
+    num1 = 10
+    num2 = 30
+    if num1 < num2:
+      minimum = num1
+    else:
+      minimum = num2
+
+    print(minimum)
+
+    ```
+
+</CodeGroup>
+
+For every new pair of integers, we need to write the if-else statement again.
+
+All this could become much simpler if we had a function to perform the steps necessary for calculating the minimum.
+
+The good news is that Python already has the `min()` function:
+
+<CodeGroup title="without_functions.py" >
+    ```python
+    minimum = min(10,20)
+    print(minimum)
+
+    minimum = min(100,200,12,66)
+    print(minimum)
+
+    minimum = min('Flash', 'Batman')
+    print(minimum)
+    ```
+
+</CodeGroup>
+
+### Types of Functions
+
+Functions are perhaps the most commonly used feature of Python. There are two basic types of functions in Python:
+
+- Built-in functions
+- User-defined functions
+  <Note>
+    `len()`, `min()`, and `print()` are examples of built-in functions.
+  </Note>
+
+The coolest feature, however, is that the language allows us to create our own functions that perform the tasks we require.
+
+## Function Creation
+
+### Components of a Function
+
+How do we actually make a function? In Python, a function can be defined using the `def` keyword in the following format:
+
+<CodeGroup title="function_definition.py">
+  ```python 
+      def function_name(parameters):
+        # function body 
+  ```
+</CodeGroup>
+
+The function name is simply the name we’ll use to identify the function.
+The parameters of a function are the inputs for that function. We can use these inputs within the function. Parameters are optional.
+The body of the function contains the set of operations that the function will perform. This is always indented to the right.
+
+### Implementation
+
+Let’s start by making a plain function that prints four lines of text. It won’t have any parameters. We’ll name it my_print_function. We can call the function in our code using its name along with empty parentheses:
+
+<CodeGroup title="without_functions.py">
+  ```python def recipe_details():
+      print('This')
+      print('is')
+      print('a')
+      print('recipe') 
+  ```
+</CodeGroup>
+
+# Function Parameters
+
+Parameters are a crucial part of the function structure.
+They are the means of passing data to the function. This data can be used by the function to perform a meaningful task.
+
+When creating a function, we must define the number of parameters and their names. These names are only relevant to the function and won’t affect variable names elsewhere in the code. Parameters are enclosed in parentheses and separated by commas.
+
+The actual values/variables passed into the parameters are known as arguments.
+
+The `min()` function requires two numbers as inputs and prints the smaller one.
+
+Let’s define our own basic form of the `min()` function that simply prints the minimum. We’ll name it `minimum()`:
+
+<CodeGroup title="function_parameters.py" >
+    ```python
+    def minimum(value1, value2):
+      if(value1 < value2):
+        print(value1)
+      else:
+        print(value2)
+
+    val1 = 10
+    val2 = 22
+
+    minimum(val1,val2)
+    ```
+
+</CodeGroup>
+
+Here, we are passing val1 and val2 to the function. The positions of the parameters are important. In the case above, the value of val1 will be assigned to value1 as it was the first parameter. Similarly, the value2 of val2 assigned to second.
+
+If we call a function with lesser or more arguments than originally required, Python will throw an error.
+
+A parameter can be any sort of data object; from a simple integer to a huge list.
+
+### The return Statement
+
+So far, we’ve only defined functions that print something. They don’t return anything back to us. But if we think back, functions return values all the time. Just take `len()` for example. It returns an integer which is the length of the data structure.
+
+To return something from a function, we must use the return keyword. Keep in mind that once the return statement is executed, the compiler ends the function. Any remaining lines of code after the return statement will not be executed.
+
+Let’s refactor the `minimum()` method to return the smaller value instead of printing it. Now, it’ll work just like the built-in `min()` function with two parameters:
+
+<CodeGroup title="function_return.py" >
+    ```python
+    def minimum(value1, value2):
+      if(value1 < value2):
+        return value1
+      return value2
+    
+    val1 = 10
+    val2 = 22
+
+    result = minimum(val1,val2)
+    print(result)
+    ```
+
+</CodeGroup>
+
+We’ve learned how to create a function, set its parameters, provide it arguments, and return data from it. Python really does make it a simple process.
+
+<Note>
+  It is a good practice to define all our functions first and then begin the
+  main code. Defining them first ensures that they can be used anywhere in the
+  program safely.
+</Note>
+
+## Function Scope
+
+The scope of a function means the extent to which the variables and other data items made inside the function are accessible in code.
+
+In Python, the function scope is the function’s body.
+
+Whenever a function runs, the program moves into the function scope. It moves back to the outer scope once the function has ended.
+
+### Data Lifecycle
+
+In Python, data created inside the function cannot be used from the outside unless it is being returned from the function.
+
+Variables in a function are isolated from the rest of the program. When the function ends, they are released from memory and cannot be recovered.
+
+The following code will never work:
+
+<CodeGroup title="lifecycle.py">
+  ```python 
+  def func(): 
+    name = "Tony"
+  
+  func()
+  print(name) # name being accessed outside the function
+  ```
+</CodeGroup>
+
+As we can see, the name variable doesn’t exist in the outer scope, and Python lets us know.
+
+Similarly, the function cannot access data outside its scope unless the data has been passed in as an argument.
+
+<CodeGroup title="lifecycle_working.py" >
+    ```python
+    name = 'Viltrum'
+
+    def func():
+      name = "Tony"
+
+    func()
+    print(name) # the value of name remains unchanged
+    ```
+
+</CodeGroup>
+
+### Altering Data
+
+When mutable data is passed to a function, the function can modify or alter it. These modifications will stay in effect outside the function scope as well. An example of mutable data is a list.
+
+In the case of immutable data, the function can modify it, but the data will remain unchanged outside the function’s scope. Examples of immutable data are numbers, strings, etc.
+
+Let’s try to change the value of an integer inside a function:
+
+<CodeGroup title="alter_function.py" >
+    ```python
+    num = 5
+
+    def multiple_by_20(n):
+      n *= 20
+      num = n
+      print('Value of the num inside function: ', num)
+      return n
+
+    multiple_by_20(num)
+    print('Value of the num outside function: ', num)
+    ```
+
+</CodeGroup>
+
+So, it’s confirmed that immutable objects are unaffected by the working of a function. If we really need to update immutable variables through a function, we can simply assign the returning value from the function to the variable.
+
+## Built-In String Functions
+
+Python boasts a huge library of built-in functions. And trust us when we say that there’s something for almost everyone.
+
+Check out the built-in functions in Python <Button
+    target='_blank'
+    href="https://www.pythoncheatsheet.org/cheatsheet/built-in-functions"
+    variant="text"
+    arrow="right"
+    children="Go to official website for Python"> here</Button>
+
+## Lambdas
+
+We have to specify function names while creating them. However, there is a special class of functions for which we do not need to specify function names.
+
+<Note>
+A lambda is an anonymous function that returns some form of data.
+</Note>
+Lambdas are defined using the `lambda` keyword. Since they return data, it is a good practice to assign them to a variable.
+
+### Syntax
+The following syntax is used for creating lambdas:
+
+<Note>
+`lambda parameters : expression`
+
+*parameters are seperated by commas* | *expression has operation that returns something*
+</Note>
+
+<CodeGroup title="lambdas.py">
+  ```python
+  three_times = lambda num : num * 3
+
+  print(three_times(22)) 
+  ```
+</CodeGroup>
+
+As we can see, lambdas are simpler and more readable than normal functions. But this simplicity comes with a limitation.
+
+A lambda cannot have a multi-line expression. This means that our expression needs to be something that can be written in a single line.
+
+Hence, lambdas are perfect for short, single-line functions.
+
+### The Purpose of Lambdas
+So, what is the point of having lambdas around? We’re still assigning them to variables, so they do have names.
+
+They can be written in-line, but that isn’t a huge advantage.
+
+Well, lambdas are really useful when a function requires another function as its argument.
+
+## Functions as Arguments
+In Python, one function can become an argument for another function. This is useful in many cases.
+
+Let’s make a calculator function that requires the `add`, `subtract`, `multiply`, or `divide` function along with two numbers as arguments.
+
+<CodeGroup title="func_as_arguments.py">
+  ```python
+  def add(n1,n2):
+    return n1 + n2
+
+def subtract(n1, n2):
+    return n1 - n2
+
+def multiply(n1, n2):
+    return n1 * n2
+
+def divide(n1, n2):
+    return n1 / n2
+    
+def calculator(operation, n1, n2):
+    return operation(n1, n2) # Using the 'operation' argument as a function
+    
+result = calculator(multiply, 10, 20)
+print(result)
+print(calculator(add, 10, 20))
+  ```
+</CodeGroup>
+
+## Recursion
+
+Recursion is the process in which a function calls itself during its execution. Each recursive call takes the program one scope deeper into the function.
+
+The recursive calls stop at the base case. The base case is a check used to indicate that there should be no further recursion.
+
+<CodeGroup title="recursive.py">
+  ```python
+  def recursive_count(num):
+    print(num)
+
+    # Base case
+    if num == 0:
+      return 0
+    
+    recursive_count(num - 1)
+    print(num)
+
+  recursive_count(5)
+  ```
+</CodeGroup>
+
+This is fairly easy to understand. In each call, the value of the number variable is printed. We then check whether the base case has been fulfilled. If not, we make a recursive call to the function with the current value decremented.
+
+One thing to notice is that an outer call cannot move forward until all the inner recursive calls have finished. This is why we get a sequence of 5 to 0 to 5.
+
+### Why Use Recursion?
+Recursion is a concept which many find difficult to grasp at first, but it has its advantages. For starters, it can significantly reduce the runtime of certain algorithms, which makes the code more efficient.
+
+<Note>
+Recursion also allows us to easily solve many problems related to graphs and trees. It is also important in search algorithms.
+</Note>
+
+However, we need to be careful when using recursion. If we don’t specify an appropriate base case or update our arguments as we recurse, the program will reach infinite recursion and crash. The arguments passed to our recursive function are updated in each recursive call so that the base case can eventually be reached.

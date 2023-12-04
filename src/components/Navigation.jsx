@@ -185,36 +185,44 @@ function NavigationGroup({ group, className }) {
 
 export const navigation = [
   {
-    title: 'Guides',
+    title: 'Bootcamp',
     links: [
       { title: 'Introduction', href: '/' },
-      { title: 'Quickstart', href: '/quickstart' },
-      { title: 'SDKs', href: '/sdks' },
-      { title: 'Authentication', href: '/authentication' },
-      { title: 'Pagination', href: '/pagination' },
-      { title: 'Errors', href: '/errors' },
-      { title: 'Webhooks', href: '/webhooks' },
+      { title: 'Installation', href: '/installation' },
     ],
   },
   {
-    title: 'Resources',
+    title: 'Part 1 - Python Basics',  
     links: [
-      { title: 'Contacts', href: '/contacts' },
-      { title: 'Conversations', href: '/conversations' },
-      { title: 'Messages', href: '/messages' },
-      { title: 'Groups', href: '/groups' },
-      { title: 'Attachments', href: '/attachments' },
+      { title: 'What is Python', href: '/python' },
+      { title: 'Data Types and Variables', href: '/data-types' },
+      { title: 'Operators', href: '/operators' },
+      { title: 'Conditional Statements', href: '/conditionals' },
+      { title: 'Functions', href: '/functions' },
+      // { title: 'Loops', href: '/loops' },
+      // { title: 'Data Structure - I', href: '/webhooks' },
     ],
   },
+  // {
+  //   title: 'Part 2 - Python - Intermediate and Flask',
+  //   links: [
+  //     { title: 'Data Structure - II', href: '/contacts' },
+  //     { title: 'Intro to Flask', href: '/conversations' },
+  //     { title: 'Static Templates', href: '/messages' },
+  //     { title: 'Dynamic Templates', href: '/groups' },
+  //     { title: 'Database', href: '/attachments' },
+  //     { title: 'Model Operations', href: '/attachments' },
+  //   ],
+  // },
 ]
 
 export function Navigation(props) {
   return (
     <nav {...props}>
       <ul role="list">
-        <TopLevelNavItem href="/">API</TopLevelNavItem>
+        {/* <TopLevelNavItem href="/">API</TopLevelNavItem>
         <TopLevelNavItem href="#">Documentation</TopLevelNavItem>
-        <TopLevelNavItem href="#">Support</TopLevelNavItem>
+        <TopLevelNavItem href="#">Support</TopLevelNavItem> */}
         {navigation.map((group, groupIndex) => (
           <NavigationGroup
             key={group.title}
@@ -222,11 +230,11 @@ export function Navigation(props) {
             className={groupIndex === 0 && 'md:mt-0'}
           />
         ))}
-        <li className="sticky bottom-0 z-10 mt-6 min-[416px]:hidden">
+        {/* <li className="sticky bottom-0 z-10 mt-6 min-[416px]:hidden">
           <Button href="#" variant="filled" className="w-full">
             Sign in
           </Button>
-        </li>
+        </li> */}
       </ul>
     </nav>
   )

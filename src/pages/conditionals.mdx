@@ -1,0 +1,118 @@
+export const description =
+  'Conditional statements in Python.'
+
+# Conditional Statements
+
+A conditional statement is a Boolean expression that, if `True`, executes a piece of code.
+It allows programs to branch out into different paths based on Boolean expressions result in True or False outcomes.
+
+<Note>
+  Conditional statements control the flow of the code and allow the computer to think. Hence, they are classified as control structures. Conditional statements are an integral part of programming that every coder needs to know.
+</Note>
+
+There are three types of conditional statements in Python:
+
+- if
+- if-else
+- if-elif-else
+
+To handle conditional statements, Python follows a particular convention:
+
+<CodeGroup title="addition.py" >
+    ```python
+    if conditional_statement is True:
+      # execute expression
+      pass
+    else:
+      # execute expression
+      pass
+    ```
+</CodeGroup>
+
+## if Statement
+
+The simplest conditional statement that we can write is the if statement. It comprises of two parts:
+
+- The condition
+- The code to be executed
+
+The `:` in the snippet above is necessary to specify the beginning of the `if` statement’s code to be executed. However, the parentheses, `()`, around the condition are optional. The code to be executed is indented at least one tab to the right.
+
+### Indentation
+Indentation plays an essential role in Python. Statements with the same level of indentation belong to the same block of code. The code of an if statement is indented a space further than the code outside it in order to indicate that this is an inner and inter-related block.
+
+The convention of our indents must also be consistent throughout a block. If we have used two spaces to make an indent, we must use two spaces for an indent in the same block. Hence, always keep indentation in mind when writing code.
+
+Indents are important in other aspects of Python, too.
+
+### Flow of an if Statement
+An if statement runs like this:
+<Note>
+if the condition holds True, execute the code to be executed. Otherwise, skip it and move on.
+</Note>
+
+Let’s write a simple if statement that verifies the value of an integer:
+
+<CodeGroup title="conditional_statement.py" >
+    ```python
+    num = 18
+    if (num >= 18):
+      print('You are eligible to vote')
+    else:
+      print('You have some more time to vote')
+    ```
+</CodeGroup>
+
+Our first condition simply checks whether the value of num is greater than or equal to `18`. Since this Boolean expression returns True, the compiler goes ahead and executes the print statement.
+
+As we can see, the print command inside the body of the if statement is indented to the right. If it wasn’t, there would be an error.
+
+<Note>
+Python puts a lot of emphasis on proper indentation.
+</Note>
+
+### Conditions with Logical Operators
+We can use logical operators to create more complex conditions in the if statement. For example, we may want to satisfy multiple clauses for the expression to be True.
+
+<CodeGroup title="conditional_statement.py" >
+    ```python
+    num = 10
+    if num % 2 == 0 and num % 3 == 0 and num % 4 == 0:
+      print('The number is a multiple of 2, 3 and 4')
+    else:
+      print('The number is a multiple of 5 and/or 6')
+    ```
+</CodeGroup>
+
+In the first if statement, all the conditions have to be fulfilled since we’re using the and operator.
+
+In the second if statement, the Boolean expression would be true if either or both of the clauses are satisfied because we are using the or operator.
+
+<Note>
+A cool feature of conditional statements is that we can nest them. This means that there could be an if statement inside another! Each nest if statement requires further indentation.
+</Note>
+
+## if-elif-else Statement
+The if-else statement handles two sides of the same condition: True and False. This works very well if we’re working with a problem that only has two outcomes. However, in programming, it isn’t always a True or False scenario, and a problem can have multiple outcomes.
+
+This is where the if-elif-else statement shines. It is the most comprehensive conditional statement because it allows us to create multiple conditions easily.
+
+<Note>
+The elif stands for else if, indicating that if the previous condition fails, try this one.
+</Note>
+
+The if and else blocks will remain the same. The elif statement comes in between the two.
+
+<CodeGroup title="if_elif.py" >
+    ```python
+    light = 'Red'
+    if light == 'Green':
+      print('Go')
+    elif light == 'Yellow':
+      print('Caution! Look First')
+    elif light == 'Red':
+      print('Stop')
+    else:
+      print('Incorrect light signal')
+    ```
+</CodeGroup>
