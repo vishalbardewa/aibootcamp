@@ -1,0 +1,362 @@
+export const description =
+  'Operators in Python. This guide provides you with the working of operators in Python'
+
+# Operators
+
+Operators are used to perform arithmetic and logical operations on data. They enable us to manipulate and interpret data to produce useful outputs.
+Operators are represented by characters or special keywords.
+In general, Python’s operators follow the in-fix or prefix notations.
+In-fix operators appear between two operands (values on which the operator acts) and hence, are usually known as binary operators:
+
+<Note>
+  A prefix operator usually works on one operand and appears before it. Hence,
+  prefix operators are known as unary operators
+</Note>
+
+The 5 main operator types in Python are:
+
+- Arithmetic operators
+- Comparison operators
+- Assignment operators
+- Logical operators
+- Bitwise operators
+
+## Arithmetic Operators
+
+Below, we can find the basic arithmetic operators in order of precedence. The operator listed higher will be computed first.
+
+These operators allow us to perform arithmetic operations in Python.
+
+### Addition
+
+We can add two numbers using the `+` operator:
+
+<CodeGroup title="addition.py" >
+    ```python
+    print(10 + 2)
+
+    num1 = 2
+    num2 = 42.2
+
+    print(num1 + num2)
+    ```
+
+</CodeGroup>
+*As we can see, summing an integer and floating-point number gives us a floating-point number. Python automatically converts the integer to a floating-point number. This applies to all arithmetic operations.*
+
+### Subtraction
+
+We can subtract two numbers using the `-` operator:
+
+<CodeGroup title="subtraction.py" >
+    ```python
+    print(10 - 2)
+
+    num1 = 2
+    num2 = 42
+
+    print(num1 - num2)
+    ```
+
+</CodeGroup>
+
+### Multiply
+
+We can multiply two numbers using the `*` operator:
+
+<CodeGroup title="multiply.py" >
+    ```python
+    print(10 * 2)
+
+    num1 = 2
+    num2 = 42
+
+    print(num1 * num2)
+    ```
+
+</CodeGroup>
+
+### Division
+
+We can divide two numbers using the `/` operator:
+
+<CodeGroup title="division.py" >
+    ```python
+    print(10 / 2)
+
+    num1 = 2
+    num2 = 42
+
+    print(num1 / num2)
+    ```
+
+</CodeGroup>
+
+### Floor Division
+
+In floor division, the result is floored to the nearest smaller integer. It is also known as integer division.
+For floor division, we must use the `//` operator:
+
+<CodeGroup title="floor_division.py" >
+    ```python
+    print(10.9 // 2.2)
+
+    num1 = 42.2
+    num2 = 2.1
+
+    print(num1 // num2)
+    ```
+
+</CodeGroup>
+
+### Modulo
+
+A number’s modulo with another number can be found using the % operator:
+
+<CodeGroup title="modulo.py" >
+    ```python
+    print(10 % 2) # 0
+
+    num1 = 43
+    num2 = 2
+
+    print(num1 % num2) # 1
+    ```
+
+</CodeGroup>
+
+### Precedence
+
+An arithmetic expression containing different operators will be computed on the basis of operator precedence.
+Whenever operators have equal precedence, the expression is computed from the left side:
+
+<CodeGroup title="precedence.py">
+  ```python
+  print(10 / 2 * 3) # Multiplication computed first, then Division
+  print(10 * 2 / 3) # Division computed first, then Multiplication 
+  ```
+</CodeGroup>
+
+## Comparison Operators
+
+The result of a comparison is always a bool.
+
+If the comparison is correct, the value of the bool will be True. Otherwise, its value will be False.
+
+The == and != operators compare the values of both operands. However, the identity operators, is and is not, check whether the two operands are the exact same object.
+
+Let’s look at a few examples:
+
+<CodeGroup title="comparision.py" >
+    ```python
+   num1 = 5
+   num2 = 10
+   num3 = 10
+   list1 = [6,7,8]
+   list2 = [6,7,8]
+   print(num2 > num1) # 10 is greater than 5
+   print(num1 > num2)  # 5 is not greater than 10
+   print(num2 == num3)  # Both have the same value
+   print(num3 != num1)  # Both have different values
+   print(3 + 10 == 5 + 5)  # Both are not equal
+   print(3 <= 2)  # 3 is not less than or equal to 2
+   print(num2 is not num3)  # Both have the same object
+   print(list1 is list2)  # Both have the different objects
+    ```
+</CodeGroup>
+*As we can see, num2 is indeed greater than num1. Hence, the result is True. On the other hand, line 8 contains an incorrect comparison, which results in False.*
+
+## Assignment Operators
+
+This is a category of operators which is used to assign values to a variable. The = operator is an assignment operator, but not the only one.
+
+Here’s a list of all the assignment operators supported in Python:
+
+| Operation | Purpose                  | Notation |
+|-----------|--------------------------|----------|
+| `=`         | Assign                   |    In-fix      |
+| `+=`        | Add and Assign           |    In-fix      |
+| `-=`        | Subtract and Assign      |    In-fix      |
+| `*=`        | Multiply and Assign      |    In-fix      |
+| `/=`        | Divide and Assign        |    In-fix      |
+| `//=`       | Divide, Floor and Assign |    In-fix      |
+| `**=`       | Raise Power and Assign   |    In-fix      |
+| `%=`        | Modulo and Assign        |    In-fix      |
+| `\|=`       | OR and Assign            |    In-fix      |
+| `&=`        | AND and Assign           |    In-fix      |
+| `^=`        | XOR and Assign           |    In-fix      |
+| `>>=`       | Right-shift and Assign   |    In-fix      |
+| `<<=`       | Left-shiift and Assign   |    In-fix      |
+
+### Assigning Values
+Let’s go through a few examples to see how values are assigned to variables.
+
+Variables are mutable, so we can change their values whenever we want!
+
+<CodeGroup title="assignment_ops.py">
+  ```python 
+  year = 2021
+  print(year)
+
+  year = year + 1
+  print(year)
+  ```
+</CodeGroup>
+
+One thing to note is that when a variable, first, is assigned to another variable, second, its value is copied into second. Hence, if we later change the value of first, second will remain unaffected:
+
+<CodeGroup title="assignment.py">
+  ```python 
+  fruit = 'Banana'
+  new_fruit = 'Apple'
+  fruit = new_fruit
+
+  print(fruit, new_fruit)
+  ```
+</CodeGroup>
+
+## Logical Operators
+
+Logical operators are used to manipulate the logic of Boolean expressions.
+
+| Operation | Purpose                  | Notation |
+|-----------|--------------------------|----------|
+| `and`         | AND                   |    In-fix      |
+| `or`        | OR           |    In-fix      |
+| `not`        | NOT      |    Prefix      |
+
+Logical expressions are formed using Booleans and logical operators.
+
+Below, we can find some examples:
+
+<CodeGroup title="logical.py">
+  ```python 
+  is_student = True or False
+
+  had_breakfast = True and False
+  ```
+</CodeGroup>
+
+### Bit Value
+
+All the code we see around us in today’s world is actually made up of bits. Combinations of 1s and 0s form the foundation of programming.
+
+In bit terms, the value of True is 1. False corresponds to 0:
+
+<CodeGroup title="bit_value.py">
+  ```python 
+  print(5 * True)
+  ```
+</CodeGroup>
+
+<Note>
+The Python interpreter can automatically convert the bool to its numerical form when needed.
+</Note>
+
+## Bitwise Operators
+
+In programming, all data is actually made up of 0s and 1s known as bits. Bitwise operators allow us to perform bit-related operations on values.
+
+| Operation | Purpose                  | Notation |
+|-----------|--------------------------|----------|
+| `&`         | Bitwise AND                   |    In-fix      |
+| `\|`        | Bitwise OR           |    In-fix      |
+| `^`        | Bitwise XOR      |    In-fix      |
+| `~`        | Bitwise NOT      |    In-fix      |
+
+<CodeGroup title="bit_value.py">
+  ```python 
+  num1 = 10
+  num2 = 20
+
+  print( num1 & num2 )  # 0     -> Binary value = 00000
+  print( num1 | num2 )  # 30    -> Binary value = 11110
+  print( num1 ^ num2 )  # 30    -> Binary value = 11110
+  print( ~num1 )        # 0     -> Binary value = ~(1011)
+  ```
+</CodeGroup>
+
+We perform the bitwise AND. This operation takes a bit from num1 and the corresponding bit from num2 and performs an AND between them.
+
+<Note>
+In simple terms, AND can be thought of as a multiplication between the two operands.
+</Note>
+
+Now, let’s visualize this example:
+
+- num1 is 01010 in binary and num2 is 10100.
+- At the first step, the first binary digits of both numbers are taken:
+    - 01010
+    - 10100
+- 0 & 1 would give 0 (again, think of it as multiplication).
+- Next, we take the second digits:
+    - 01010
+    - 10100
+- These two will once again give us 0.
+- Doing this for all pairs, we can see that the answer is 0 each time.
+- Hence, the output is 00000.
+
+The OR operation in line 5 will work in the same principle except that instead of multiplication, we will perform addition between the two binary numbers.
+
+<Note>
+0 OR 1 gives us 1. 1 OR 1 also produces 1 (binary numbers do not go beyond 1). However, 0 OR 0 will give us 0 (0 + 0 is still 0).
+</Note>
+
+Bitwise XOR and NOT will work on each bit as well. You can play with the code to get a better idea.
+
+## String Operations
+
+The string data type has numerous utilities that make string computations much easier. Let’s get down to the basics.
+
+### Comparison Operators
+Strings are compatible with the comparison operators. Each character has a Unicode value.
+
+This allows strings to be compared on the basis of their Unicode values.
+
+When two strings have different lengths, the string which comes first in the dictionary is said to have the smaller value.
+
+Let’s look at a few examples:
+
+<CodeGroup title="comparison.py">
+  ```python 
+  print('a' < 'b'>)
+
+  bike = 'Yamaha RX 100'
+  bike_copy = 'Yamaha RX 100'
+
+  print(bike == bike_copy)
+  
+  new_bike = 'Royal Enfield Classic'
+
+  print(bike == new_bike)
+  print(bike <= new_bike)
+  print(bike >= new_bike)
+  ```
+</CodeGroup>
+
+### Concatenation 
+The `+` operator can be used to merge two strings together:
+
+<CodeGroup title="concatenation.py">
+  ```python 
+  first = 'Shakti'
+  second = 'maan'
+
+  superhero = first + second
+  print(superhero)      # Shaktimaan
+  ```
+</CodeGroup>
+
+### Search
+The in keyword can be used to check if a particular substring exists in another string. If the substring is found, the operation returns true.
+
+Here’s how it works:
+
+<CodeGroup title="bit_value.py">
+  ```python 
+  sentence = 'We are the champion'
+
+  print('were' in sentence)         # Check whether 'were' exits
+  print('champion' in sentence)     # 'champion' exists
+  ```
+</CodeGroup>

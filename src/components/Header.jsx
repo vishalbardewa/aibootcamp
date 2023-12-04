@@ -4,7 +4,7 @@ import clsx from 'clsx'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 import { Button } from '@/components/Button'
-import { Logo } from '@/components/Logo'
+// import { Logo } from '@/components/Logo'
 import {
   MobileNavigation,
   useIsInsideMobileNavigation,
@@ -12,6 +12,9 @@ import {
 import { useMobileNavigationStore } from '@/components/MobileNavigation'
 import { ModeToggle } from '@/components/ModeToggle'
 import { MobileSearch, Search } from '@/components/Search'
+import Image from 'next/image'
+import Logo from '@/images/logos/bootcamp.svg'
+import DarkLogo from '@/images/logos/bootcamp-dark.svg'
 
 function TopLevelNavItem({ href, children }) {
   return (
@@ -62,15 +65,35 @@ export const Header = forwardRef(function Header({ className }, ref) {
       <div className="flex items-center gap-5 lg:hidden">
         <MobileNavigation />
         <Link href="/" aria-label="Home">
-          <Logo className="h-6" />
+          <Image
+            className="hidden dark:block"
+            src={Logo}
+            alt="bootcamp by instudia"
+            width={200}
+            height={200}
+          />
+          <Image
+            className="block dark:hidden"
+            src={DarkLogo}
+            alt="bootcamp by instudia"
+            width={200}
+            height={200}
+          />
+          {/* <Image
+            src={Logo}
+            alt="bootcamp by instudia"
+            width={200}
+            height={200}
+          /> */}
+          {/* <Logo className="h-6" /> */}
         </Link>
       </div>
       <div className="flex items-center gap-5">
         <nav className="hidden md:block">
           <ul role="list" className="flex items-center gap-8">
-            <TopLevelNavItem href="/">API</TopLevelNavItem>
+            {/* <TopLevelNavItem href="/">API</TopLevelNavItem>
             <TopLevelNavItem href="#">Documentation</TopLevelNavItem>
-            <TopLevelNavItem href="#">Support</TopLevelNavItem>
+            <TopLevelNavItem href="#">Support</TopLevelNavItem> */}
           </ul>
         </nav>
         <div className="hidden md:block md:h-5 md:w-px md:bg-zinc-900/10 md:dark:bg-white/15" />
@@ -78,9 +101,9 @@ export const Header = forwardRef(function Header({ className }, ref) {
           <MobileSearch />
           <ModeToggle />
         </div>
-        <div className="hidden min-[416px]:contents">
+        {/* <div className="hidden min-[416px]:contents">
           <Button href="#">Sign in</Button>
-        </div>
+        </div> */}
       </div>
     </motion.div>
   )
